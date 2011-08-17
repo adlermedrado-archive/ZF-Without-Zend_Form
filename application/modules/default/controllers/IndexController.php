@@ -35,7 +35,7 @@ class IndexController extends Zend_Controller_Action
             if ($validUser) {
                 $userMapper->save($user);
             } else {
-                // Do something if it isn´t ok
+                // Do something if it is not ok
             }
             
             $this->view->formData = $filterUser->toJson();
