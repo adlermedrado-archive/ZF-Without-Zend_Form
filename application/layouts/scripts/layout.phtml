@@ -1,0 +1,30 @@
+<!DOCTYPE unspecified PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Exemplo</title>
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+
+	 $(document).ready(function(){
+		 $("#btnSalvar").click(function() {
+			 $("#form").submit();
+		 });
+	 });
+	</script>
+</head>
+<body>
+<?php echo $this->layout()->content; ?>
+<script type="text/javascript" src="<?php echo $this->baseUrl('js/lib/form/populate.js')?>"></script>
+<?php 
+if (isset($this->formData)):
+?>
+<script type="text/javascript">
+populateForm(<?php echo $this->formData ?>);
+</script>
+<?php 
+endif;
+?>
+</body>
+</html>
