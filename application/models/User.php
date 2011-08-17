@@ -4,7 +4,7 @@ class Application_Model_User extends Core_Models_Plain
     protected $_id, $_name, $_username, $_email, $_passwd;
     protected $_filters = array('name' => array('StringToUpper'));
     protected $_validators = array('name'     => array('NotEmpty'), // For example purposes only --->,'Alnum',array('Between', 1,10)), 
-    							   'username' => array('NotEmpty', 'Alnum'),
+                                   'username' => array('NotEmpty', 'Alnum'),
                                    'email'    => array('EmailAddress'));
     /**
      * @return array
