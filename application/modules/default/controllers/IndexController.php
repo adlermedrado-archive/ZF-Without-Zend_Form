@@ -12,9 +12,9 @@ class IndexController extends Zend_Controller_Action
     {
         $userMapper = new Application_Model_UserMapper();
         
-        echo "<h2>Obtendo Registros</h2>";
-        $registros = $userMapper->fetchAll();
-        Zend_Debug::dump($registros);
+        echo "<h2>Getting Records</h2>";
+        $records = $userMapper->fetchAll();
+        Zend_Debug::dump($records);
         
     }
 
@@ -30,11 +30,12 @@ class IndexController extends Zend_Controller_Action
             $user->setEmail($this->getRequest()->getParam('email',''));
             $user->setPasswd('12345');
             
+            // $filterUser is passed by reference
             $validUser = $user->validate($filterUser);
             if ($validUser) {
                 $userMapper->save($user);
             } else {
-                // Faz algo se nao ok
+                // Do something if it isn´t ok
             }
             
             $this->view->formData = $filterUser->toJson();
