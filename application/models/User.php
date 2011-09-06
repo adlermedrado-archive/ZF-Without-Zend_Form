@@ -35,21 +35,6 @@ class Application_Model_User extends Core_Models_Plain
                                    'username' => array('NotEmpty', 'Alnum'),
                                    'email'    => array('EmailAddress'));
     /**
-     * @return array
-     */
-    public function getFilters ()
-    {
-        return $this->_filters;
-    }
-
-	/**
-     * @return array
-     */
-    public function getValidators ()
-    {
-        return $this->_validators;
-    }
-    /**
      * @return int
      */
     public function getId ()

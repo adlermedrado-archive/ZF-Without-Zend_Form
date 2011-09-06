@@ -26,6 +26,27 @@
  */
 class Core_Models_Plain
 {
+    
+    protected $_filters    = array();
+    protected $_validators = array();
+    
+    
+    /**
+     * @return array
+     */
+    public function getFilters ()
+    {
+        return $this->_filters;
+    }
+
+	/**
+     * @return array
+     */
+    public function getValidators ()
+    {
+        return $this->_validators;
+    }
+    
     /**
      * get the info about the objects
      * @author Adler Medrado
