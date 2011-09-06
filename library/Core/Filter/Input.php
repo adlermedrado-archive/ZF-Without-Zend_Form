@@ -38,7 +38,19 @@ class Core_Filter_Input extends Zend_Filter_Input
      */
     public function __construct ($filterRules, $validatorRules, $data = null, $options = null)
     {
-        parent::__construct($filterRules, $validatorRules, $data = null, $options = null);
+         $translate = Zend_Registry::get('Zend_Translate');
+         
+         $this->setTranslator($translate);
+		 $notEmptyMessage = $translate->_('notEmptyValue');
+		
+		if (is_null($options)) { 
+			$options = array(
+			    'notEmptyMessage' => $notEmptyMessage
+			);
+		} else {
+			$options['notEmptyMessage'] = $notEmptyMessage;
+		}
+         parent::__construct($filterRules, $validatorRules, $data = null, $options);
     }
     
     /**

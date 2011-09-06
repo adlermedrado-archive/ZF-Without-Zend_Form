@@ -2,12 +2,6 @@
 
 class IndexController extends Zend_Controller_Action
 {
-
-    public function init()
-    {
-        /* Initialize action controller here */
-    }
-    
     public function indexAction() 
     {
         $userMapper = new Application_Model_UserMapper();
@@ -31,14 +25,13 @@ class IndexController extends Zend_Controller_Action
             $user->setPasswd('12345');
             
             // $filterUser is passed by reference
+            $filterUser = null;
             $validUser = $user->validate($filterUser);
             if ($validUser) {
                 $userMapper->save($user);
             } else {
-                // Do something if it is not ok
+            	$this->view->formData = $filterUser->toJson();
             }
-            
-            $this->view->formData = $filterUser->toJson();
             
         }
         
